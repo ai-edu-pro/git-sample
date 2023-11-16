@@ -1,0 +1,238 @@
+>> day14 - 23/11/16
+
+ > 형상관리 
+
+ > 데이터베이스 설계 실습 (팀 수행 과제)
+
+
+=====================================
+>> day13 - 23/11/15
+
+ > 테스트
+
+ 
+ > 형상관리
+ -- 쉽게!!
+   1) github site 회원가입 
+    https://github.com
+
+ [수행 실습]
+ 저장소 : git-doyeon 만들고, 리드미 넣을지 결정?  
+ 새로운 newText.txt  내용 기재,  
+ local file upload 해보기,
+ 저장소 이름 > git-new-doyeon 변경해보기
+ 디폴트 브랜치명  master로 변경해보기
+ 저장소 지우기까지 수행하기 
+
+
+echo "# git-test2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ai-edu-pro/git-test.git
+git push -u origin main
+
+ - 버전관리 == 소스코드 관리
+
+ -- commit 명령 후 작업 (vi 편집)
+입력 시작	i	명령어 입력 모드에서 텍스트 입력 모드로 전환
+입력 종료	ESC	텍스트 입력 모드에서 명령어 입력 모드로 전환
+저장 없이 종료	:q	
+저장 없이 강제 종료	:q!	입력한 것이 있을 때 사용
+저장하고 종료	:wq	입력한 것이 있을 때 사용
+위로 스크롤	k	git log등에서 내역이 길 때 사용
+아래로 스크롤	j	git log등에서 내역이 길 때 사용
+
+  https://git-scm.com
+ git config --global user.name  "git에 있는 이름"
+ git config --global user.email  "본인 이메일"
+
+ -- 확인하기
+ git config --global user.name
+ git config --global user.email
+
+
+ - 기본 브랜치명 변경
+   git config --global init.defaultBranch main
+   git branch -M  main   : 메인 브랜치 이름 변경
+
+
+ -- 원격 저장소 연결하기
+  git clone https://github.com/ai-edu-pro/git-test.git
+  git remote add origin (원격 저장소 주소)
+  
+ -- git에 파일 올리기
+ $ git add sample.txt   <--- stage 에 올려져 있음.
+ $ git commit  -m  "message"
+
+ $ git push    <---- 처음 할때 로그인 관련 메세지 창 보임.
+
+ -- git 상태 확인
+ git status
+ 
+ -- 명령어 별칭 만들기 
+ git config --global  alias.st  status
+
+ 
+ git log  <---- 복구하려는 시점 확인
+ git  reset --hard   커밋 상태값
+ 예) $ git reset --hard  58360f4d5afb2242cb1260347e3dd6afe40c7e54
+
+ -- 강제로 푸시 한다
+ $ git push -f
+
+ -- branch 확인
+ git branch 
+
+ -- branch 생성(만들기)
+ git branch  브랜치명
+ 예) git branch  develop
+
+ -- 원격지에도 동시에 브랜치 만들기
+  $ git push origin mbc
+
+ -- 로컬 저장소의 커밋 내역들 원격으로 push(업로드)
+ git push -u origin main
+  또는 -u 옵션,  --set-upstream   (현재 브랜치와 명시된 원격 브랜치 연결)
+
+ -- branch 이동
+ git switch develop   or   git checkout develop  
+
+ -- 브랜치 생성과 함께 이동하기
+  git switch  -c    new-develop
+
+ -- 브랜치 합치기(병합)
+ git merge  병합할 브랜치명  <--- 병합할 브랜치에 있으면 안됨.
+
+ -- 상태를 직관적으로 확인하기 
+  gitk
+
+ -- branch 삭제
+ $ git branch -d new-develop
+
+ -- 원격 저장소에 있는 branch 삭제하기
+ $ git push -d origin 브랜치명   
+
+  git remote   : 원격의 이름 확인
+  git remote -v  : 자세한 내용을 보여준다.
+
+ 수행 실습]
+ 1. 임의적인 브랜치 2개 만들기 (원격지에도 나타나게...)
+ 2. 만든 브랜치로 이동해보기
+ 3. 브랜치 합쳐보기
+ 4. 브랜치 삭제 (원격 저장소것도 삭제되게...)
+ 5. 메인이 아닌 브랜치에 파일 올리기 (git bash로 하기 ) 
+ 6. 사용자 추가하기 ( 각 팀들은 팀원들 깃메일 확인해서 등록해보기 ) 
+
+ > token 만들기
+ 1. github에 로그인하기
+ 2. settings click
+ 3. Developer settings
+ 4. Personal access tokens
+ 5. Generate new token
+ 6. 원하는 토근명 지정하기 > expiration(만료기간) > repo 체크만 > General token click
+ ## 생성된 토큰 복사 떠 놓는다. 
+
+ > 자신의 사용 PC에 윈도우 인증 하기
+ 1. 검색 : 자격 검증 > 자격 증명 관리자 선택
+ 2. Windows 자격 증명
+ 3. 하단 목록에서 git 사이트 보이면 선택 > 편집 클릭 
+     사용자 이름 : 자신의 git에 기록되어 있는 이름 기재
+     암호 : 위에서 만들어 둔 토큰 붙여넣기 > 저장
+    또는, 안보이면 추가
+
+
+  https://www.sourcetreeapp.com
+
+ cf) https://git-scm.com/downloads/guis
+
+
+  - 테스트 할 수 있는 곳
+  https://learngitbranching.js.org/?locale=ko
+
+ cf) 네이밍
+ be01-1st-1Team
+ be01-1st-2Team
+ be01-1st-3Team
+ be01-1st-4Team
+ be01-1st-5Team
+
+==========================================
+>> day12 - 23/11/14
+
+ 3, 4, 6, 7, 9 장
+
+ > 실습
+class SomeClass {
+    public  Class1 publicAttr ;  // 멤버변수
+    protected  Class2  protectedAttr ; 
+    private  Class3 privateAttr ; 
+
+   public void publicOperation() {  
+	//실행구문
+   }
+  protected void protectedOperation() {  
+	//실행구문
+   }
+  private void privateOperation() {  
+	//실행구문
+   }
+} // end class
+
+class abstract Polygon {
+   Area  area ;  // 접근지정자 생략시 default 
+   public abstract getArea(Area out, Area area ); 
+} // end class
+
+-- extends 
+
+public class User {  // Super class
+   private String id;
+   private String password;
+
+   public void login() {   }
+} //user end
+
+public Customer extends User {  // Sub class
+   @Override 
+   public void login() {  } 
+} //customer end
+
+public Admin extends User {  // Sub class
+
+   @Override 
+   public void login() {  } 
+} //customer end
+
+-- 모든 프로그램은 사용할 변수 또는 함수는 메모리 상에 할당 되어 있어야 사용 가능하다.
+-- interface는 추상메소드만 가질수 있다. 멤버변수는 final fieldName ; 만 갖는다.
+
+
+예) c / c++ 
+   int x ;
+   char ch ; 
+
+   java 
+   int x = 9 ;
+   char ch = 'A' ; 
+
+
+=====================================
+>> day11 - 23/11/13
+
+ > SW 위기 -> 개발 방법 대두 -> 개발 방법의 여러 종류 알아보기
+
+ > 무어의 법칙 : https://url.kr/6jzu2y
+
+ https://onecoin-life.com/24
+ > 폭포수 모형
+ > 신속 개발 모형
+ > 프로토타입 모형
+ > 나선형 모형
+ > 애자일 등등
+
+ > 증분 개발 모델
+ https://www.javatpoint.com/software-engineering-incremental-model
+
+
